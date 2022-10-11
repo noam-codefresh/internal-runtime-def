@@ -1,0 +1,36 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+images:
+- name: quay.io/codefresh/argocli
+  newName: dustinvanbuskirk/argocli
+  newTag: v3.2.6-cap-CR-8697
+- name: quay.io/codefresh/argoexec
+  newName: dustinvanbuskirk/argoexec
+  newTag: v3.2.6-cap-CR-8697
+- name: quay.io/codefresh/workflow-controller
+  newName: dustinvanbuskirk/workflow-controller
+  newTag: v3.2.6-cap-CR-8697
+
+patchesStrategicMerge:
+- |
+    apiVersion: v1
+    kind: ConfigMap
+    metadata:
+      name: workflow-controller-configmap
+    data:
+      artifactRepository:  |
+        archiveLogs: true
+        s3:
+          bucket: argo-logs
+          endpoint: ad721f5d5a5c4437bbd81aea414e7a06-667773302.us-west-2.elb.amazonaws.com:9000
+          insecure: true
+          accessKeySecret:
+            name: my-minio-cred
+            key: accessKey
+          secretKeySecret:
+            name: my-minio-cred
+            key: secretKey
+
+resources:
+- github.com/codefresh-io/cli-v2/manifests/argo-workflows?ref=v0.0.534
