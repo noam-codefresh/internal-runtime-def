@@ -4,8 +4,8 @@ metadata:
   name: "{{ name }}"
   namespace: "{{ namespace }}"
 spec:
-  defVersion: 2.0.0
-  version: 0.0.536
+  requiredCLIVersion: ^0.1.0
+  version: 0.1.14
   bootstrapSpecifier: github.com/noam-codefresh/internal-runtime-def/manifests/argo-cd
   components:
     - name: events
