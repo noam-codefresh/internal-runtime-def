@@ -12,5 +12,17 @@ images:
   newName: dustinvanbuskirk/redis
   newTag: 7.0.4-alpine
 
+patches:
+# Istio protocol selection: https://istio.io/latest/docs/ops/configuration/traffic-management/protocol-selection/
+# Ovveride the default protocol selection which is done by the port name (http), since this port is being used for both http and grpc.
+- target:
+    version: v1
+    kind: Service
+    name: argocd-server
+  patch: |
+    - op: add
+      path: /spec/ports/0/appProtocol
+      value: tcp
+
 resources:
 - github.com/codefresh-io/csdp-official/csdp/hybrid/basic/apps/argo-cd?ref=0.1.15
