@@ -7,4 +7,4 @@ images:
   newTag: v1.2.0-cap-CR-10626
 
 resources:
-- github.com/codefresh-io/cli-v2/manifests/argo-rollouts?ref=v0.0.534
+- github.com/codefresh-io/csdp-official.git/csdp/hybrid/basic/apps/argo-rollouts?ref=0.1.15

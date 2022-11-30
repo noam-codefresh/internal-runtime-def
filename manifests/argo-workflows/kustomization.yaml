@@ -12,5 +12,16 @@ images:
   newName: dustinvanbuskirk/workflow-controller
   newTag: v3.2.6-cap-CR-8697
 
+patches:
+- target:
+    group: apps
+    version: v1
+    kind: Deployment
+    name: workflow-controller
+  patch: |
+    - op: replace
+      path: /spec/template/spec/containers/0/args/3
+      value: dustinvanbuskirk/argoexec:v3.2.6-cap-CR-8697
+
 resources:
-- github.com/codefresh-io/cli-v2/manifests/argo-workflows?ref=v0.0.534
+- github.com/codefresh-io/csdp-official.git/csdp/hybrid/basic/apps/argo-workflows?ref=0.1.15

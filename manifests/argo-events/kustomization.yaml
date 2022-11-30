@@ -79,4 +79,4 @@ patchesStrategicMerge:
     namespace: argo-events
 
 resources:
-- github.com/codefresh-io/cli-v2/manifests/argo-events?ref=v0.0.534
+- github.com/codefresh-io/csdp-official/csdp/hybrid/basic/apps/argo-events?ref=0.1.15

@@ -4,16 +4,13 @@ kind: Kustomization
 images:
 - name: quay.io/codefresh/argocd
   newName: dustinvanbuskirk/argocd
-  newTag: v2.3.4-cap-CR-14359-app-uid
+  newTag: v2.4.15-cap-CR-15028-last-changes
 - name: ghcr.io/dexidp/dex
   newName: dustinvanbuskirk/dex
-  newTag: v2.30.2
+  newTag: v2.35.3-distroless
 - name: quay.io/codefresh/redis
   newName: dustinvanbuskirk/redis
-  newTag: 6.2.6-alpine
-- name: quay.io/codefresh/applicationset
-  newName: dustinvanbuskirk/applicationset
-  newTag: latest
+  newTag: 7.0.4-alpine
 
 resources:
-- github.com/codefresh-io/cli-v2/manifests/argo-cd?ref=v0.0.534
+- github.com/codefresh-io/csdp-official/csdp/hybrid/basic/apps/argo-cd?ref=0.1.15

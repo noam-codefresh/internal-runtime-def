@@ -5,27 +5,27 @@ metadata:
   namespace: "{{ namespace }}"
 spec:
   requiredCLIVersion: ^0.1.0
-  version: 0.1.14
+  version: 0.1.15
   bootstrapSpecifier: github.com/noam-codefresh/internal-runtime-def/manifests/argo-cd
   components:
-    - name: events
-      type: kustomize
-      url: github.com/noam-codefresh/internal-runtime-def/manifests/argo-events
-      wait: true
-    - name: rollouts
-      type: kustomize
-      url: github.com/noam-codefresh/internal-runtime-def/manifests/argo-rollouts
-    - name: workflows
-      type: kustomize
-      url: github.com/noam-codefresh/internal-runtime-def/manifests/argo-workflows
-    - name: app-proxy
-      type: kustomize
-      url: github.com/noam-codefresh/internal-runtime-def/manifests/app-proxy
-      syncWave: 9
-    - name: sealed-secrets
-      type: kustomize
-      url: github.com/noam-codefresh/internal-runtime-def/manifests/sealed-secrets
-    # - name: codefresh-tunnel-client
-    #   type: helm
-    #   url: github.com/codefresh-io/codefresh-tunnel-charts/codefresh-tunnel-client?ref=0.1.3
-    #   feature: ingressless
+  - name: events
+    type: kustomize
+    url: github.com/noam-codefresh/internal-runtime-def/manifests/argo-events
+    wait: true
+  - name: rollouts
+    type: kustomize
+    url: github.com/noam-codefresh/internal-runtime-def/manifests/argo-rollouts
+  - name: workflows
+    type: kustomize
+    url: github.com/noam-codefresh/internal-runtime-def/manifests/argo-workflows
+  - name: app-proxy
+    type: kustomize
+    url: github.com/noam-codefresh/internal-runtime-def/manifests/app-proxy
+    syncWave: 9
+  - name: internal-router
+    type: kustomize
+    url: github.com/noam-codefresh/internal-runtime-def/manifests/internal-router
+    syncWave: 10
+  - name: sealed-secrets
+    type: kustomize
+    url: github.com/noam-codefresh/internal-runtime-def/manifests/sealed-secrets
